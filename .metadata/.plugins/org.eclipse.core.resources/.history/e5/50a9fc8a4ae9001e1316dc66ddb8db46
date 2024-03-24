@@ -1,0 +1,15 @@
+package com.firstproject;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+@SpringBootApplication
+public class FirstProjectJDBCApplication {
+
+	public static void main(String[] args) {
+		
+		ConfigurableApplicationContext context = SpringApplication.run(FirstProjectJDBCApplication.class, args);
+		context.getBean(Employee.class);
+	}
+}

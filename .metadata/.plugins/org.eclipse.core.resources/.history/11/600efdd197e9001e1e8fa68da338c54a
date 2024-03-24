@@ -1,0 +1,5 @@
+package com.firstproject.repo;
+
+public class EmployeeRepository {
+
+}

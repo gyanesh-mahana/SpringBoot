@@ -1,0 +1,17 @@
+package com.firstproject.repo;
+
+import java.util.ArrayList;
+
+import com.firstproject.model.Employee;
+
+public class EmployeeRepository {
+	
+	public void save(Employee emp) {
+		
+	}
+	
+	public List<Employee> getAllEmployee(){
+		return new ArrayList<Employee>();
+	}
+
+}

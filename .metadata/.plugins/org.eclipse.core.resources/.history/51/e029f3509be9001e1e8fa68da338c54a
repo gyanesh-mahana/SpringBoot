@@ -1,0 +1,38 @@
+package com.firstproject.repo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+import com.firstproject.model.Employee;
+
+@Repository
+public class EmployeeRepository {
+
+	private JdbcTemplate jdbcTemplate;
+
+	public void save(Employee emp) {
+		System.out.println("Employee Added...");
+	}
+
+	public List<Employee> getAll() {
+		return new ArrayList<Employee>();
+	}
+
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
+	}
+
+	/**
+	 * dependency injection provided for JDBC template
+	 * 
+	 * @param jdbcTemplate
+	 */
+	@Autowired
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+}

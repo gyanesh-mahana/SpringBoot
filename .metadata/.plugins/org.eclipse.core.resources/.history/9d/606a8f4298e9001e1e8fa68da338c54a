@@ -1,0 +1,22 @@
+package com.firstproject.repo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.firstproject.model.Employee;
+
+
+@Repository
+public class EmployeeRepository {
+	
+	public void save(Employee emp) {
+		
+	}
+	
+	public List<Employee> getAllEmployee(){
+		return new ArrayList<Employee>();
+	}
+
+}

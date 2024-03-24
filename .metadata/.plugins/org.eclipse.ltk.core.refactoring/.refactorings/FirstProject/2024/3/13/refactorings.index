@@ -1,0 +1,6 @@
+1711254610852	Move compilation unit
+1711255229254	Encapsulate field 'template'
+1711256142704	Encapsulate field 'jdbcTemplate'
+1711257029057	Rename resource 'empTableSchema.sql'
+1711257037917	Rename resource 'empData.sql'
+1711258852411	Delete element

@@ -1,0 +1,75 @@
+package com.firstproject;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+/**
+ * Basic POJO class
+ */
+
+//adding Component annotation makes this class as a Bean in Spring Framework
+//Beans is an object of Spring Container
+
+@Component
+/**
+ * So Spring will not create instance by default. It will wait to be called to
+ * create an instance of the Component
+ */
+//@Scope(value = "prototype") 
+public class Employee {
+
+	public Employee() {
+		super();
+		System.out.println("Object of SampleClass created...");
+	}
+
+	private int id;
+	private String name;
+	private String designation;
+	/**
+	 * this object is created but cannot communicate unless the Employee class is
+	 * able to communicate to Laptop object
+	 * How can it communicate?
+	 *  Using @Autowired annotation - it searches the object and try to communicate
+	 */
+	@Autowired
+	private Laptop laptop;
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void show() {
+		System.out.println("Calling Show Method of SampleClass");
+		laptop.compileLaptop(); // to make this line of code work we need to make Laptop class as a Component
+	}
+
+	public Laptop getLaptop() {
+		return laptop;
+	}
+
+	public void setLaptop(Laptop laptop) {
+		this.laptop = laptop;
+	}
+}

@@ -1,0 +1,33 @@
+package com.firstproject;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+@SpringBootApplication
+public class FirstProjectApplication {
+
+	public static void main(String[] args) {
+
+		/**
+		 *  This is basic way to create an object
+		 */
+//		SampleClass sampleObj = new SampleClass();
+
+		/**
+		 *  In dependency injection Spring framework will take care of object creation
+		 *  Developer need to focus on the logic instead
+		 */
+		
+		/**
+		 * The object of the COmponent is always created even if the object is not called 
+		 * Spring Framework uses Singleton concept so only one instance is created for a given component
+		 */
+		ConfigurableApplicationContext context = SpringApplication.run(FirstProjectApplication.class, args);
+		SampleClass sampleObj1 = context.getBean(SampleClass.class);
+		sampleObj1.show();
+		SampleClass sampleObj2 = context.getBean(SampleClass.class);
+		sampleObj2.show();
+	}
+
+}

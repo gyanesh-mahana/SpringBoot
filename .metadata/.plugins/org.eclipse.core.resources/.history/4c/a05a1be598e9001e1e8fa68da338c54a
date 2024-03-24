@@ -1,0 +1,37 @@
+package com.firstproject.repo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration;
+import org.springframework.stereotype.Repository;
+
+import com.firstproject.model.Employee;
+
+
+@Repository
+public class EmployeeRepository {
+	
+	private JdbcTemplateAutoConfiguration template;
+	
+	
+	public void save(Employee emp) {
+		System.out.println("Employee Added...");
+	}
+	
+	public List<Employee> getAllEmployee(){
+		return new ArrayList<Employee>();
+	}
+
+	@Autowired
+	public JdbcTemplateAutoConfiguration getTemplate() {
+		return template;
+	}
+
+	@Autowired
+	public void setTemplate(JdbcTemplateAutoConfiguration template) {
+		this.template = template;
+	}
+
+}

@@ -1,0 +1,30 @@
+package com.firstproject.repo;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.firstproject.model.Employee;
+
+@SpringBootApplication
+public class FirstProjectJDBCApplication {
+
+	public static void main(String[] args) {
+
+		ApplicationContext context = SpringApplication.run(FirstProjectJDBCApplication.class, args);
+		Employee emp = context.getBean(Employee.class);
+		emp.setId(1);
+		emp.setName("Raju");
+		emp.setDesignation("SDE-1");
+
+		System.out.println(emp.getId());
+		System.out.println(emp.getName());
+		System.out.println(emp.getDesignation());
+
+//		Employee emp2 = context.getBean(Employee.class);
+//		System.out.println(emp2.getId());
+//		System.out.println(emp2.getName());
+//		System.out.println(emp2.getDesignation());
+
+	}
+}

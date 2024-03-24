@@ -1,0 +1,50 @@
+package com.firstproject.repo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+import com.firstproject.model.Employee;
+
+@Repository
+public class EmployeeRepository {
+
+	private JdbcTemplate jdbcTemplate;
+
+	public EmployeeRepository() {
+		super();
+		System.out.println("EmployeeRepository constructor called");
+	}
+
+	public void save(Employee emp) {
+
+		String query = "insert into employee (id, emp_name, designation) values (?,?,?)";
+		/**
+		 * Employee table should be there otherwise Error will be thrown
+		 * 
+		 * To resolve this error we can add a schema in the resources
+		 */
+		jdbcTemplate.update(query, emp.getId(), emp.getName(), emp.getDesignation());
+	}
+
+	public List<Employee> getAll() {
+		return new ArrayList<Employee>();
+	}
+
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
+	}
+
+	/**
+	 * dependency injection provided for JDBC template
+	 * 
+	 * @param jdbcTemplate
+	 */
+	@Autowired
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+}

@@ -1,0 +1,54 @@
+package com.firstproject;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+/**
+ * Basic POJO class
+ */
+
+//adding Component annotation makes this class as a Bean in Spring Framework
+//Beans is an object of Spring Container
+
+@Component
+@Scope(value = "prototype") //So Spring will not create instance by default. It will wait to be called to create an instance of the Componel̥nt
+public class Employee {
+
+	public Employee() {
+		super();
+		System.out.println("Object of SampleClass created...");
+		// TODO Auto-generated constructor stub
+	}
+
+	private int id;
+	private String name;
+	private String designation;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCharacteristics() {
+		return characteristics;
+	}
+
+	public void setCharacteristics(String characteristics) {
+		this.characteristics = characteristics;
+	}
+
+	public void show() {
+		System.out.println("Calling Show Method of SampleClass");
+	}
+}

@@ -1,0 +1,89 @@
+package com.firstproject.model;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+/**
+ * Basic POJO class
+ */
+
+//adding Component annotation makes this class as a Bean in Spring Framework
+//Beans is an object of Spring Container
+
+/**
+ * Default object name created for the component is with the same name but
+ * starting with small letter Here the object name is employee
+ * 
+ * Developer can customize the name of instance in Spring Container with
+ * Component parameter
+ */
+@Component("emp")
+/**
+ * So Spring will not create instance by default. It will wait to be called to
+ * create an instance of the Component
+ */
+//@Scope(value = "prototype") 
+public class Employee {
+
+	public Employee() {
+		super();
+		System.out.println("Employee object created...");
+	}
+
+	private int id;
+	private String name;
+	private String designation;
+	/**
+	 * This object is created but it cannot communicate unless the Employee class is
+	 * able to communicate to Laptop object
+	 * 
+	 * How can it communicate? Using @Autowired annotation - it searches the object
+	 * and try to communicate
+	 * 
+	 * By default the @Autowired with search for the object in Spring Container with
+	 * the class type But if Developer want to search by name of instance? It can be
+	 * done by @Qualifier annotation
+	 */
+	@Autowired
+	@Qualifier(value = "lappy")
+	private Laptop laptop;
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void show() {
+		System.out.println("Calling Employee Show Method");
+		laptop.compileLaptop(); // to make this line of code work we need to make Laptop class as a Component
+	}
+
+	public Laptop getLaptop() {
+		return laptop;
+	}
+
+	public void setLaptop(Laptop laptop) {
+		this.laptop = laptop;
+	}
+}
