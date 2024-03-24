@@ -26,18 +26,22 @@ public class HomeController {
 		System.out.println("Mapping resume page");
 		/**
 		 * This will download the jsp file because by default the jsp is not supported
-		 * for this we need tomcat jasper dependency
+		 * for this we need tomcat jasper dependency the jsp file is read by default
+		 * from src/webapp folder
 		 */
 		return "resume.jsp";
 	}
 
-	@RequestMapping("resumebody")
-	public String resumeBody() {
-		System.out.println("Mapping resume page");
+	@RequestMapping("resume2")
+	public String resumeNew() {
+		System.out.println("Mapping new resume page");
 		/**
 		 * This will download the jsp file because by default the jsp is not supported
 		 * for this we need tomcat jasper dependency
+		 * 
+		 * We can customize which path to check for web app pages and what files to use
+		 * to view by updating application.properties in resources
 		 */
-		return "resume.jsp";
+		return "resume"; // search for resume file with suffix (.jsp) and prefix path (/pages/)
 	}
 }
