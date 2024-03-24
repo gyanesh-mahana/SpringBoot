@@ -1,0 +1,40 @@
+package com.employee;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.employee.model.Employee;
+
+@SpringBootApplication
+public class EmployeeProjectApplication {
+
+	public static void main(String[] args) {
+
+		/**
+		 * This is basic way to create an object
+		 */
+//		SampleClass sampleObj = new SampleClass();
+
+		/**
+		 * In dependency injection Spring framework will take care of object creation
+		 * Developer need to focus on the logic instead
+		 */
+
+		/**
+		 * The object of the Component is always created even if the object is not
+		 * called Spring Framework uses Singleton Design pattern so only one instance is
+		 * created for a given component
+		 * 
+		 * If developer do not want that only one instance is created for the Class he
+		 * can add @Scope annotation to the class - this will create a new object
+		 * whenever getBean method is called
+		 */
+		ConfigurableApplicationContext context = SpringApplication.run(EmployeeProjectApplication.class, args);
+		Employee sampleObj1 = context.getBean(Employee.class);
+		sampleObj1.show();
+//		Employee sampleObj2 = context.getBean(Employee.class);
+//		sampleObj2.show();
+	}
+
+}
