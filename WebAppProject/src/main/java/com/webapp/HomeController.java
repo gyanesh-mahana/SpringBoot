@@ -21,8 +21,8 @@ public class HomeController {
 	 * @return
 	 */
 
-	@GetMapping("/resume")
-	public String resume() {
+	@GetMapping("/oldresume")
+	public String resume1() {
 		System.out.println("Mapping resume page");
 		/**
 		 * This will download the jsp file because by default the jsp is not supported
@@ -32,8 +32,8 @@ public class HomeController {
 		return "resume.jsp";
 	}
 
-	@RequestMapping("resume2")
-	public String resumeNew() {
+	@RequestMapping("resume")
+	public String resume() {
 		System.out.println("Mapping new resume page");
 		/**
 		 * This will download the jsp file because by default the jsp is not supported

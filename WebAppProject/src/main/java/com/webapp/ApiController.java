@@ -26,15 +26,5 @@ public class ApiController {
 		 */
 		return "This is Home page";
 	}
-	
-//	@GetMapping("/resume")
-//	public String resume() {
-//		System.out.println("Mapping resume page");
-//		/**
-//		 * This will download the jsp file because by default the jsp is not supported
-//		 * for this we need tomcat jasper dependency
-//		 */
-//		return "This is Resume page";
-//	}
 
 }
