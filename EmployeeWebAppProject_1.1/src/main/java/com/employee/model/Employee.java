@@ -14,6 +14,9 @@ public class Employee {
 	@Id
 	private int eid;
 
+	private String ename;
+	private String edesig;
+	
 	public int getEid() {
 		return eid;
 	}
@@ -37,9 +40,6 @@ public class Employee {
 	public void setEdesig(String edesig) {
 		this.edesig = edesig;
 	}
-
-	private String ename;
-	private String edesig;
 
 	public String toString() {
 		return String.format("Employee data: {id:%d, name:%s, desig:%s}", getEid(), getEname(), getEdesig());
